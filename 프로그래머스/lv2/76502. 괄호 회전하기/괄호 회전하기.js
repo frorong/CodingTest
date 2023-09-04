@@ -8,19 +8,20 @@ function check(str) {
     
     let stack = [];
     let answer = true;
+    
     if (str.length % 2 !== 0) {
       return false;
     }
+    
     for (let i = 0; i < str.length; i++) {
         if(left.includes(str[i])) stack.push(str[i]);
+        else if(match[str[i]] === stack[stack.length - 1]) stack.pop();
         else {
-            if(match[str[i]] === stack[stack.length - 1]) stack.pop();
-            else {
-                answer = false;
-                break;
-            }
+            answer = false;
+            break;
         }
     }
+    
     if (stack.length !== 0) return false;
     return answer;
 }

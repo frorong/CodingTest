@@ -1,5 +1,4 @@
 function check(str) {
-    const left = ['(', '{', '['];
     const match = {
         ')' : '(',
         '}' : '{',
@@ -14,7 +13,7 @@ function check(str) {
     }
     
     for (let i = 0; i < str.length; i++) {
-        if(left.includes(str[i])) stack.push(str[i]);
+        if(!match[str[i]]) stack.push(str[i]);
         else if(match[str[i]] === stack[stack.length - 1]) stack.pop();
         else {
             answer = false;

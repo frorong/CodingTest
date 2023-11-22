@@ -13,10 +13,8 @@ function solution(s) {
     }
     let answer = '';
     let strCnt = '';
-    for(let i =0; i < s.length; i++){
-        if(!isNaN(s[i])){
-            answer += s[i];
-        }
+    for(let i = 0; i < s.length; i++){
+        if(!isNaN(s[i])) answer += s[i];
         else{
             strCnt += s[i];
             if(numbers[strCnt] != undefined){

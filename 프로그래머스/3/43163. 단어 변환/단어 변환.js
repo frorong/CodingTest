@@ -3,7 +3,6 @@ function solution(begin, target, words) {
     let visited = new Array(words.length).fill(false);
 
     dfs(begin, 0);
-
     function dfs(cur, cnt) {
         if (cur === target) {
             answer = cnt;

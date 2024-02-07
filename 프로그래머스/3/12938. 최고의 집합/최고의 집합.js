@@ -10,6 +10,5 @@ function solution(n, s) {
     
     for(let i = 0; i < nameo; i++) answer[i]++;
     
-    
     return answer.reverse();
 }

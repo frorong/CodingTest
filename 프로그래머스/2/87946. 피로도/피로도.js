@@ -1,16 +1,14 @@
 function solution(k, dungeons) {
-    var answer = 0;
-    
-    dfs(k, [], 0);
-    
-    function dfs(p, visited, cnt){
-        answer = Math.max(cnt, answer);
-        if(cnt === dungeons.length || p <= 0) return;
-            
-        dungeons.forEach((v,j) => {
-            if(!visited.includes(j) && v[0] <= p) dfs(p - v[1], [...visited, j], cnt + 1);
-        })
+    dungeons.sort((a, b) => (a[0] - a[1]) - (b[0] - b[1]));
+
+    const memo = {};
+
+    for (let i = 1; i <= dungeons.length; i++) {
+        for (let r = k; r >= 1; r--) {
+            if (dungeons[i - 1][0] > r) memo[r] = memo[r] || 0;
+            else memo[r] = Math.max(memo[r] || 0, 1 + (memo[r - dungeons[i - 1][1]] || 0));
+        }
     }
-    
-    return answer;
+
+    return memo[k] ?? 0;
 }

@@ -5,6 +5,5 @@ function solution(numbers) {
         const ba = nb + na;
         return ba - ab;
     }).join('');
-    
     return numbers[0] === '0' ? '0' : numbers;
 }

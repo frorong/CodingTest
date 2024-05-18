@@ -23,6 +23,7 @@ function solution(n, costs) {
         return false;
     }
     
+    
     for(const cost of costs){
         if(!findParent(parent,cost[0],cost[1])){
             answer += cost[2];
